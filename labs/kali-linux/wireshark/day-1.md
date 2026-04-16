@@ -23,7 +23,7 @@ Capture, identify, read, and inspect DNS query traffic.
 
 Steps:
 - Open wireshark; either by clicking the app or typing "wireshark" on the terminal.
-- Select a target: ethO is my local machine.
+- Select a target: eth0 is my local machine.
 - Click the blue fin at the top left corner to start capturing the traffic.
 
 ## 2. Open a website
