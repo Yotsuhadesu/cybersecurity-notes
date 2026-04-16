@@ -58,7 +58,7 @@ Observations:
   1. HTTPS record
   2. IPv4 address of the youtube server
   3. IPv6 address of the youtube server
-- I can see stil; the website and the returned IP addresses.
+- I can see still the website and the returned IP addresses.
 
 ---
 
