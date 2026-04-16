@@ -3,7 +3,7 @@
 ## Operating System
 Kali Linux
 
-## Objective
+## Objectives
 Capture, identify, read, and inspect DNS query traffic.
 
 --- 
@@ -24,7 +24,7 @@ Capture, identify, read, and inspect DNS query traffic.
 Steps:
 - Open wireshark; either by clicking the app or typing "wireshark" on the terminal.
 - Select a target: ethO is my local machine.
-- Click the blue fin at the top left corener to start capturing the traffic.
+- Click the blue fin at the top left corner to start capturing the traffic.
 
 ## 2. Open a website
 
@@ -36,7 +36,7 @@ Steps:
 
 ![dns traffic](screenshots/wireshark-dns-traffic.png)
 
-- beside the blue bookmark, type dns.qry.name == "youtube.com" to filter DNS communication between my machine and youtube.
+- Beside the blue bookmark, type dns.qry.name == "youtube.com" to filter DNS communication between my machine and youtube.
   
 ## 4. Query inspection
 
@@ -48,7 +48,8 @@ Observations:
   2. A - IPv4 address for youtube
   3. AAAA - IPv6 address for youtube
 - I can see the website I'm trying to visit. I'm concerned of whether other people who inspected my network can see this or not.
-- 10.169.13.251 is the router acting as a DNS resolver
+- 10.169.13.10 is my Source IP (the client)
+- 10.169.13.251 is the Destination IP (the server), which is my router acting as a DNS resolver
 
 ## 5. Response Analysis
 
