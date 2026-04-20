@@ -19,7 +19,7 @@ Capture, identify, read, and inspect DNS query traffic.
 
 ## 1. Capture traffic
 
-![wireshark](screenshots/wireshark-interface.png)
+![wireshark](screenshots/day-1/wireshark-interface.png)
 
 Steps:
 - Open wireshark; either by clicking the app or typing "wireshark" on the terminal.
@@ -28,19 +28,19 @@ Steps:
 
 ## 2. Open a website
 
-![youtube website](screenshots/browser-website-open.png)
+![youtube website](screenshots/day-1/browser-website-open.png)
 
 - I've never visited youtube, so I chose it since I'm worried that the DNS of the websites I've visited before might be cached - preventing unusual results on the DNS traffic.
   
 ## 3. Filter DNS traffic
 
-![dns traffic](screenshots/wireshark-dns-traffic.png)
+![dns traffic](screenshots/day-1/wireshark-dns-traffic.png)
 
 - Beside the blue bookmark, type dns.qry.name == "youtube.com" to filter DNS communication between my machine and youtube.
   
 ## 4. Query inspection
 
-![dns query](screenshots/wireshark-dns-query.png)
+![dns query](screenshots/day-1/wireshark-dns-query.png)
 
 Observations:
 - My machine asked for 3 things:
@@ -53,13 +53,10 @@ Observations:
 
 ## 5. Response Analysis
 
-![dns response](screenshots/wireshark-dns-response.png)
+![dns response](screenshots/day-1/wireshark-dns-response.png)
 
 - My router returned 3 responses
   1. HTTPS record
   2. IPv4 address of the youtube server
   3. IPv6 address of the youtube server
 - I can see still the website and the returned IP addresses.
-
----
-
