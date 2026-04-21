@@ -68,7 +68,8 @@ Thoughts:
   4. The exchange encryption keys.
   5. Encrypted communication begins.
 - However, on TLS version 1.3, the certificate is encrypted - masked with "Application Data"
-
+- The traffic after the server hello packet was mostly "Application Data" and "ACK"
+  
 ## 4. The HTTPS Traffic - Encrypted Communication
 
 To analyze the contents of the HTTPS traffic:
@@ -84,10 +85,14 @@ Observation:
 
 ---
 
+## Conclusion:
+- HTTP vs HTTPS
 
-
-
-
-
-
-
+| | HTTP | HTTPS |
+| --- | --- | --- |
+| Visibility | Visible | Encrypted |
+| Visible Contents | All | Domain Name, Source & Server IP address, time |
+  
+- DNS Lookup and TLS handshake give away the website I am trying to enter.
+- The "Application Data" packets are the HTTPS traffic, which are encrypted web resource transfer.
+- The repeated "ACK" flags were signals that the data are received.
