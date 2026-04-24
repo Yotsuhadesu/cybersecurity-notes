@@ -1,15 +1,21 @@
 # HTTP & Web Fundamentals
+
 ## Tools
 - Kali Linux Virtual Machine
 - curl
 - Wireshark
+
 ## Objective
 Read a full HTTP exchange without the browser summarizing it.
+
 --- 
+
 ##  Actions Performed
+
 ---
+
 ## Wireshark
-- Look at and analyze real-time http traffic.
+Look at and analyze real-time http traffic.
  
 1. Open an insecure website via a browser.
 
@@ -69,4 +75,15 @@ HTTP Response
 - Content-Type - the type of resources sent
 
 There's another HTTP request for CSS but it didn't get a response.
+
 ---
+
+## CURL
+- A command-line tool for tranferring resources.
+
+1. Send a get request to an HTTP website.
+
+![http filter](screenshots/day-1/curl-get.png)
+
+- `-v` 
+
