@@ -15,40 +15,40 @@ Read a full HTTP exchange using Wireshark without the browser summarizing it.
 
 1. Open an insecure website via a browser.
 
-![http forever](screenshots/day-1/wireshark/website-httpforever.png)
+![http forever](../screenshots/day-1/wireshark/website-httpforever.png)
 
 - HTTP Forever is an intentional insecure website.
 - Use your own safe network or use VPN!
   
 2. Capture HTTP traffic
 
-![http filter](screenshots/day-1/wireshark/wireshark-http-filter.png)
+![http filter](../screenshots/day-1/wireshark/wireshark-http-filter.png)
 
 - Filter HTTP traffic
 3. Follow HTTP Stream
   
-![http filter](screenshots/day-1/wireshark/wireshark-http-get.png)
+![http filter](../screenshots/day-1/wireshark/wireshark-http-get.png)
 
 - Look for the GET / HTTP/1.1
   
-![http filter](screenshots/day-1/wireshark/wireshark-follow-http-stream.png)
+![http filter](../screenshots/day-1/wireshark/wireshark-follow-http-stream.png)
 
 - Right-click the packet, select Follow, and then HTTP Stream.
   
-![http filter](screenshots/day-1/wireshark/wireshark-http-packet.png)
+![http filter](../screenshots/day-1/wireshark/wireshark-http-packet.png)
 
 - Voila! The whole HTTP communication in a window.
 - After the first HTTP request header, there are encrypted-like lines of data. However, through research, I've found out that it's binary data.
   
 4. HTTP Communication Analysis
 
-![http filter](screenshots/day-1/wireshark/wireshark-http-get-header.png)
+![http filter](../screenshots/day-1/wireshark/wireshark-http-get-header.png)
 
 - GET method - the client is requesting web resources
 - Host: httpforever.com
   - This is the server, where the client requested resources from
     
-![http request](screenshots/day-1/wireshark/wireshark-http-1.png)
+![http request](../screenshots/day-1/wireshark/wireshark-http-1.png)
 
 HTTP Request
 - GET /js/... - the client requests for JavaScript files
