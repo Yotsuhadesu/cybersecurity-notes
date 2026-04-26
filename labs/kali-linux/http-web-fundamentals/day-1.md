@@ -19,7 +19,7 @@ Look at and analyze real-time http traffic.
  
 1. Open an insecure website via a browser.
 
-![http forever](screenshots/day-1/website-http-forever.png)
+![http forever](screenshots/wireshark/day-1/website-http-forever.png)
 
 - HTTP Forever is an intentional insecure website.
 - Use your own safe network or use VPN!
