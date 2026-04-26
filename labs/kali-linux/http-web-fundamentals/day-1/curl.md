@@ -1,21 +1,33 @@
-## CURL
-- A command-line tool for tranferring resources.
+# HTTP & Web Fundamentals - Curl
+
+## Tools
+- Kali Linux Virtual Machine
+- Curl - A command-line tool for tranferring resources.
+
+## Objective
+Simulate and read a full HTTP exchange using Curl without the browser summarizing it.
+
+--- 
+
+##  Actions Performed
+
+---
 
 1. Send a get request to an HTTP website.
 
-![http filter](../screenshots/day-1/curl/curl-get.png)
+![curl get request](../screenshots/day-1/curl/curl-get.png)
 
 - `-v` - verbose, see the details of the whole process
 
 2. Analyze Results
 
-![http filter](../screenshots/day-1/curl/curl-http-process.png)
+![http process](../screenshots/day-1/curl/curl-http-process.png)
 
 Process Details
 - the A and AAAA records of the website server has been returned at port 80
 - failed to connect through IPv6, but succeeded using the IPv4 address
 
-![http filter](../screenshots/day-1/curl/curl-http-request.png)
+![http request](../screenshots/day-1/curl/curl-http-request.png)
 
 HTTP Request Details
 - `>` - lines starting with this is the request
@@ -28,7 +40,7 @@ HTTP Request Details
 - Accept
  - */* - any type of media the website has
 
-![http filter](../screenshots/day-1/curl/curl-http-response.png)
+![http response](../screenshots/day-1/curl/curl-http-response.png)
 
 HTTP Response Details
 - `<` - lines starting with this is the response
@@ -39,7 +51,7 @@ HTTP Response Details
 - Date - the exact date the response sent
 - Content-Type - the type of media sent
 
-![http filter](../screenshots/day-1/curl/curl-http-body.png)
+![http body](../screenshots/day-1/curl/curl-http-body.png)
 
 The Body
 - the data/web resource sent
