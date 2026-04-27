@@ -31,6 +31,8 @@ Target:
 
 ## 2. Verify the server
 
+![Nmap Scan](screenshots/day-2/nmap-server-version-scan.png)
+
 Command:
 - nmap
 - `-sV` - version scan
@@ -66,7 +68,7 @@ Observation:
 
 ## 5. Check Traffic
 
-![server version scan](screenshots/day-2/curl-sniff-header.png)
+![server version scan](screenshots/day-2/tcpdump-sniff-header.png)
 
 - Go back to the tcpdump tab
 - If you find the added headers, the curl command worked
