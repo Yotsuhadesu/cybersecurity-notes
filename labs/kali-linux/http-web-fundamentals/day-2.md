@@ -31,8 +31,6 @@ Target:
 
 ## 2. Verify the server
 
-![server version scan](screenshots/day-2/nmap-server-version-scan.png)
-
 Command:
 - nmap
 - `-sV` - version scan
