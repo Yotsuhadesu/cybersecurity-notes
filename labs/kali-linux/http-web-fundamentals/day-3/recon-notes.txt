@@ -1,0 +1,11 @@
+1.1 Username input field
+1.2 The client types the account's username on it through a POST method
+1.3 If you don't have a strong password, an attacker can brute force the pass. 
+
+2.1 Search input field
+2.2 The client types a string through a submission form
+2.3 Just an assumption, can an attacker put weird strings and the system accepts it? Like a code or a script?
+
+3.1 A hidden token value
+3.2 It is dictated by the system
+3.3 On websites, a session token can be used to hijack sessions
