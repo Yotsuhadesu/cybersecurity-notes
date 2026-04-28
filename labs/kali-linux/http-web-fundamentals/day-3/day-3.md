@@ -32,7 +32,7 @@
 - nano - create a PHP file
 - /var/www/html - apache's store
 
-![test server](screenshots/day-3/nano-local-server.png)
+![test server](../screenshots/day-3/nano-local-server.png)
 
 Two Parts:
 1. HTML code - content
@@ -47,7 +47,7 @@ Two Parts:
 
 ## Use curl to read a web app's raw response like an attacker
 
-![curl request](screenshots/day-3/curl-local-server.png)
+![curl request](../screenshots/day-3/curl-local-server.png)
 
 1. Send a Request to the server and show the details
   - run `curl -v http://localhost/practice.php`
