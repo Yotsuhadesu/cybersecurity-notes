@@ -87,7 +87,7 @@ Let's answer that by demo:
 - Injected it in the storage tool
 - Refreshed the page
 
-![logged in](../screenshots/day-1/webdev-tools/private-website-reddit.png)
+![logged in](../screenshots/day-1/webdev-tools/private-reddit-login.png)
 
 - Voila! I logged in without actually logging in
 - This is called session hijacking, where an attacker steals your session cookies and pretends as the victim
