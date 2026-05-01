@@ -2,7 +2,7 @@
 
 ## Tools
 - Kali Linux Virtual Machine
-- Damn Vulnerable Web Application (DVWA) - a web application for training and testing tools for cybersecurity
+- Damn Vulnerable Web Application (DVWA) - a web application designed for training and testing tools for cybersecurity
 - Apache - a web server
 - MySQL -  a database engine
 - apt - (Advanced Package Tool) - tool for software installation and updates
@@ -10,7 +10,7 @@
 
 ## Key Terms
 Security Misconfiguration 
-- instances that developers leave their applications, databases, and websites vulnerable
+- instances where developers leave their applications, databases, and websites vulnerable
 
 Default Credentials
 - pre-set usernames and passwords for initial setup
@@ -31,7 +31,7 @@ Default Credentials
 
 - run `sudo apt update`
   - update - search for software updates
-- This is to find the latest versions of DVWA
+- This is to find the latest version of DVWA
 
 ## 2. Install DVWA
 
@@ -47,17 +47,17 @@ Default Credentials
 - sudo service apache2 start
   - to host dvwa, as a web application, locally
 - sudo service mysql start
-  - the database engine where dvwa stores and retrieves its and the user's resources.
+  - the database engine where DVWA stores and retrieves its data and the user's information.
 - dvwa-start
   - run dvwa on browser
  
 ## 4. Enter default credentials
 
-![run dvwa](screenshots/day-2/dvwa-default-credentials.png)
+![run dvwa](screenshots/day-2/dwva-default-credentials.png)
 
 - Username: admin
 - Password: password
-- These are one of the most common default credentials.
+- These are among the most common default credentials.
 
 ## 5. Create database
 
@@ -75,3 +75,9 @@ Default Credentials
 ![dvwa](screenshots/day-2/dvwa-database.png)
 
 - We entered the database using the default credentials.
+
+---
+
+## Conclusion
+- Security misconfigurations leave vulnerabilities, and vulnerabilities are the things that attackers find.
+- Failure to change the default credentials is a security misconfiguration. It's like leaving your house's key in the door knob.
