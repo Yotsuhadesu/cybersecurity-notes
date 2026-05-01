@@ -49,3 +49,29 @@ Default Credentials
 - sudo service mysql start
   - the database engine where dvwa stores and retrieves its and the user's resources.
 - dvwa-start
+  - run dvwa on browser
+ 
+## 4. Enter default credentials
+
+![run dvwa](screenshots/day-2/dvwa-default-credentials.png)
+
+- Username: admin
+- Password: password
+- These are one of the most common default credentials.
+
+## 5. Create database
+
+![run dvwa](screenshots/day-2/dvwa-create-database.png)
+
+- Scroll down to the bottom of the website ui
+- Click `Create/Reset Database`
+
+## 6. Log in
+
+![run dvwa](screenshots/day-2/dvwa-login.png)
+
+- Since we didn't change the database's credentials, we'll still use the default credentials.
+
+![dvwa](screenshots/day-2/dvwa-database.png)
+
+- We entered the database using the default credentials.
