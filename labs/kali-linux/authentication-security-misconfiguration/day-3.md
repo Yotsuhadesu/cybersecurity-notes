@@ -23,6 +23,10 @@
 - This is adding an extra layer of defense on a website/database.
 - It ensures that an attack won't do as much damage all at once, which gives the developers and cybersecurities to enclose, mitigate, and track the attack.
 
+## Least privilege
+- Granting users minimum access, enough to do their job or access services.
+- This is to prevent the user's account to compromise the system even if it was hacked.
+
 ## SQL injection
 - This is when the database engine mistakenly accepts a user input as a SQL command.
 - For example, an attacker enters `admin' --` to the username input field. The `'` encloses the `admin`, which results in the database engine accepting `--`, or a comment symbol, as a SQL command. This comments out the rest of the SQL query, which includes the password inputting.
