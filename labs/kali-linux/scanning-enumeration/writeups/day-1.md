@@ -17,7 +17,7 @@
 - extracting the details about the services that the host is using
 
 ## Actions Performed
-1. Scanning
+### 1. Scanning
 Command: nmap 45.33.32.156
 - Baseline Scan/Full TCP Scan
 - 45.33.32.156 - IPv4 address of nmap.scanme.org (the host)
@@ -30,7 +30,7 @@ Observations:
 3. 962 filtered ports - blocked by a firewall.
 4. 36 closed ports - no services listening.
 
-2. Enumeration
+### 2. Enumeration
 Command: nmap -sV -p 22,80 45.33.32.156
 - `sV` - service version scan
 - `p` - scan specific ports
