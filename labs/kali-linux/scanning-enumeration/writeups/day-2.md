@@ -39,10 +39,12 @@ Observations:
 Command: nmap -sC -p 22,80 45.33.32.156
 - `-sC` - tells Nmap to perform safe, default scripts on the target
 - Analogy: Going in the person of interest's house and checking the walls, mats, ceiling, and the table.
+- Use this when you ant maximum information.
+- Don't use this for stealth and avoiding detection.
 
 ![safe script scan](../screenshots/day-2/nmap-scan-script-safe.png)
 
 Observations:
 - SSH Hostkeys - host identification
 - HTTP Title - the website's title
-- These specific details may gave away key details about the target.
+- These specific details may gave away key details about the target that can be exploited.
