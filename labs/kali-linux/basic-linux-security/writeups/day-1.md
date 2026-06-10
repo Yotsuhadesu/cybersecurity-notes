@@ -15,6 +15,8 @@
   - r = read, w = write, x = execute
 - `/etc/passwd` - a world-readable list of user information
 - `/etc/shadow` - a root-only list of user passwords
+- password hash - scrambled and irreversible version of the password
+- SUID - set user ID, the program runs as its owner regardless of who executes it
 
 ## Commands
 - `sudo useradd -m` - creates a user and its directory
@@ -37,26 +39,40 @@
 ### Add a user and assign its password
 Commands: 
 - `sudo useradd -m testuser`
-- `sudo passwd testuser`
 - `ls ..`
+- `sudo passwd testuser`
 
 ![create user](../screenshots/day-1/kali-useradd.png)
 
-![set password](../screenshots/day-1/kali-passwd.png)
+- Create testuser and its directory
 
 ![user directory check](../screenshots/day-1/kali-user-check.png)
+
+- testuser's directory is created.
+
+![set password](../screenshots/day-1/kali-passwd.png)
+
+- Set testuser's password.
+
 
 ### Assign the user to a group
 Commands: 
 - `sudo groupadd testgroup`
+- `groups testgroup`
 - `sudo usermod -aG testgroup testuser`
-- - `groups testuser`
 
 ![create group](../screenshots/day-1/kali-groupadd.png)
 
-![assign group](../screenshots/day-1/kali-usermod.png)
+- Create testgroup.
 
 ![check group](../screenshots/day-1/kali-group-check.png)
+
+- testgroup is created.
+
+![assign group](../screenshots/day-1/kali-usermod.png)
+
+- Assign a group for testuser.
+- Without `-a` flag, testuser will be removed from the group(s) it is in before that.
 
 ### Create a file, set its permissions, and change its owner
 Commands:
@@ -69,8 +85,71 @@ Commands:
 
 ![file creation](../screenshots/day-1/kali-file-create.png)
 
+- Create the text file secret.txt on a directory for temporary files.
+- Write the word "sensitive data" on it.
+- Read the text.
+
 ![set permissions](../screenshots/day-1/kali-chmod.png)
+
+- Set the file's permissions.
+- 600 - octal form of the permission triplets `rw-------`
+- owner: `rw-` - can read and edit secret.txt
+- groups: `---` - can't read, edit, and run secret.txt
+- others: `---` - can't read, edit, and run secret.txt
 
 ![change owner](../screenshots/day-1/kali-chown.png)
 
+- Assign testuser as the owner of the file.
+
 ![owner check](../screenshots/day-1/kali-owner-check.png)
+
+- Permission triplets: `rw-------`
+- testuser (owner): can read and edit secret.txt
+- tesgroup (group): can't read, edit, and run secret.txt
+- everyone else (others): can't read, edit, and run secret.txt
+
+### Read passwd and shadow
+Commands: 
+- `ls -la /etc/passwd`
+- `ls -la /etc/shadow`
+- `grep testuser /etc/passwd`
+- `sudo grep testuser /etc/shadow`
+
+![list passwd](../screenshots/day-1/kali-list-etc-passwd.png)
+
+- Permission Triplets: `rw-r--r--`
+- root (owner): can read and edit
+- groups and others: can only read
+- This means that /etc/passwd is world-readable, anyone on the filesystem can see its contents.
+
+![list shadow](../screenshots/day-1/kali-list-etc-shadow.png)
+
+- Permissions Triplets: `rw-r-----`
+- root (owner): can read and edit
+- shadow (group): can read
+- everyone else (others): can't read, edit, and run the file
+- This means that /etc/shadow can only be edited by the root and read by the shadow group.
+
+![testuser on passwd](../screenshots/day-1/kali-grep-passwd-testuser.png)
+
+- Extract testuser's infornation from /etc/passwd
+- On the second field, x is a placeholder for the password.
+- It means that the password isn't there and is somewhere else in the filesystem.
+
+![testuser on shadow](../screenshots/day-1/kali-grep-shadow-testuser.png)
+
+- Extract testuser's password hash from /etc/shadow
+- The long string after testuser's username field is its password hash.
+- While the password hash is irreversible, an attacker can use a brute force tool to guess the password.
+
+### Check a file that has a SUID
+Command: `ls -l /usr/bin/passwd`
+
+![Directory with SUID](../screenshots/day-1/kali-list-usr-bin-passwd.png)
+
+- `/usr/bin/passwd` is a file with SUID.
+- Permission triplets: `rws-xr-x`
+- root (owner): can read, edit, and execute
+- root (group): can read and execute
+- others: can read and execute
+- The s instead of x in the owner's permission triplets means that the file can be executed by regular users as the root.
