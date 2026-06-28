@@ -19,6 +19,9 @@ Command: `nmap -sC -sV -p- --script=vuln 10.49.145.249`
 - `-p-` - scan all 65535 possible ports
 
 Result:
+
+![nmap scan](screenshots/nmap_scan.png)
+
 - There are three ports listening:
   1. 21 (ftp) - vsftpd 3.0.3 
   2. 22 (ssh) - OpenSSH 7.6p1
@@ -34,14 +37,22 @@ Command: `ftp 10.49.145.249`
 2. Enter `anonymous` when asked for the username.
 3. Press enter when asked for the password.
 
+![ftp anonymous login](screenshots/ftp_login.png)
+
 - The FTP environment allows anonymous login.
 
 ### FTP Enumeration
 Commands: 
 `ls` - show all files
+
+![ftp files](screenshots/ftp_files.png)
+
   - There is a text file, `note_to_jake.txt`.
 `get note_to_jake.txt -`
   - print the contents of the text file
+
+![note to jake](screenshots/note_to_jake.png)
+
   - Amy tells jake to change his weak password because holt will be mad if someone hacks into the nine nine.
 
  ### Two Ways Hack into the Machine
@@ -66,6 +77,9 @@ Result:
    - This will give you the file `brooklyn99.jpg.out`
 3. Open the file: `cat brooklyn99.jpg`
 
+Result: 
+- Holt's password: [holt's password](screenshots/holt_password.png)
+
 --- 
 
 ### SSH Login
@@ -80,13 +94,20 @@ Commands:
 ### Filesystem Enumeration
 Commands:
 `ls /home`
+
+![user](screenshots/ssh_users.png)
+
   - There are three user directories: `amy`, `holt`, and `jake`
+
 `ls /home/jake`
   - Jake's directory is empty.
+
 `ls /home/amy`
   - Amy's directory is empty.
+
 `ls /home/holt`
   - Holt's directory contains `user.txt`
+
 `cat user.txt`
   - The user flag is `ee1***`.
 
