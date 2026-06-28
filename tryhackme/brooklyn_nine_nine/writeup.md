@@ -109,7 +109,7 @@ Commands:
   - Holt's directory contains `user.txt`
 
 `cat user.txt`
-  - The user flag is `ee1***`.
+  - User Flag: [user flag](screenshots/user_flag.png)
 
 ### Privilege Escalation
 Commands:
@@ -125,4 +125,4 @@ Commands:
 `ls /root`
   - the root's directory contains `root.txt`
 `cat root.txt`
-  - the root flag is `63a***`.
+  - Root Flag: [root flag](screenshots/root_flag.png)
