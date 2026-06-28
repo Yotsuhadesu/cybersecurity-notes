@@ -95,7 +95,7 @@ Commands:
 Commands:
 `ls /home`
 
-![user](screenshots/ssh_users.png)
+![ssh users](screenshots/ssh_users.png)
 
   - There are three user directories: `amy`, `holt`, and `jake`
 
