@@ -63,10 +63,8 @@ Command: `curl 10.48.148.236`
 
 - In the body, there is a comment that revealed Rick's username for the web server.
 
-![username](screenshots/http_comment_username.png)
-
 Note:
-- Username: `R1ckRul3s`
+- Username: [username](screenshots/http_comment_username.png)
 
 ### Visit the Website 
 Open the browser and enter the target's Ip in the search bar to visit Rick's Website, `Rick is sup4r cool`.
@@ -80,18 +78,14 @@ Open the browser and enter the target's Ip in the search bar to visit Rick's Web
 ### Visit Exposed Files
 - Go to `10.48.148.236/login.php` and `10.48.148.236/robots.txt`.
 
-![password](screenshots/robots.txt_password.png)
-
-- `robots.txt` contains the string `Wubbalubbadubdub`, which is likely to be Rick's password.
+- `robots.txt` contains the string [password](screenshots/robots.txt_password.png), which is likely to be Rick's password.
 
 ![login portal](screenshots/login_page.png)
 
 - `login.php` is the login portal.
 
 ### Login
-- On `login.php`'s input fields, enter:
-  - Username: `R1ckRul3s`
-  - Password: `Wubbalubbadubdub`
+- On `login.php`'s input fields, enter the username and password.
  
 ![command panel](screenshots/command_panel.png)
 
@@ -118,9 +112,7 @@ Commands:
 - The first text file, `Sup3rS3cretPickl3ingred.txt` is the first ingredient.
 - Run `nl Sup3rS3cretPickl3ingred.txt`
 
-![first ingredient](screenshots/first_ingredient.png)
-
-- First Ingredient: `mr. meeseek hair`
+- First Ingredient: [first ingredient](screenshots/first_ingredient.png)
 
 ### Look for Users
 Commands:
@@ -143,9 +135,7 @@ Commands:
 - There is the second ingredient's file.
 - Run `nl /home/rick/"second ingredients"`
 
-![second ingredient](screenshots/second_ingredient.png)
-
-- Second Ingredient: `jerry tear`
+- Second Ingredient: [second ingredient](screenshots/second_ingredient.png)
 
 ### The Third Ingredient
 Commands:
@@ -157,6 +147,4 @@ Commands:
 - ubuntu's directory shows the exposed `.bash_history` file, which contains the commands executed by the user ubuntu.
 - Open it using the command: `sudo nl /home/ubuntu/.bash_history`
 
-![third ingredient](screenshots/third_ingredient.png)
-
-- Third Ingredient: `fleeb juice`
+- Third Ingredient: [third ingredient](screenshots/third_ingredient.png)
