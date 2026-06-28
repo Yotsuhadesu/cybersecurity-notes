@@ -75,7 +75,7 @@ Result:
 1. Download the cover image from the website: `wget http://10.49.145.249/brooklyn99.jpg`
 2. Crack the passphrase: `stegcracker brooklyn99.jpg /usr/share/wordlists/rockyou.txt`
    - This will give you the file `brooklyn99.jpg.out`
-3. Open the file: `cat brooklyn99.jpg`
+3. Open the file: `cat brooklyn99.jpg.out`
 
 Result: 
 - Holt's password: [holt's password](screenshots/holt_password.png)
