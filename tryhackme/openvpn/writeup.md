@@ -30,5 +30,6 @@
 6. Get the flag.
     - Open browser.
     - Visit `http://10.49.186.51`.
+
 ![website](screenshots/connection-verified.png)
-    - The flag is under the last text.
+- The flag is under the last text.
