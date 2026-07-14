@@ -106,12 +106,12 @@ Opening the text files:
 ---
 
 ## Technicalities
-- EterbalBlue
+- EternalBlue
 	- a computer exploit that is developed and kept secret by National Security Agency (NSA)
 	- targets the buffer overflow flaw in SMBv1
 	- was leaked by the group Shadow Brokers and used for the WannaCry ransomware in 2017
 - SMBv1 - Server Message Block version 1, is a legacy file-sharing protocol of Windows
-- MS17-010 - a Windows security patch for SMBv1 
+- MS17-010 - a Windows security designation for SMBv1 vulnerability and its patch
 - `nmap -sV -vv --script=vuln [target IP]`
 	- `nmap` - a powerful tool for scanning and enumeration
 	- `sV` - service/version scan
