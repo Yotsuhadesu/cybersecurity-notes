@@ -4,7 +4,7 @@
 "Deploy & hack into a Windows machine, leveraging common misconfigurations issues."
 
 ## Objective
-Exploit the critical flaws of Server Message Block version 1, a network file-sharing protocol, using EternalBlue, a computer exploit.
+Exploit the critical flaws of Server Message Block version 1 using EternalBlue.
 
 ## Tasks
 1. Reconnaissance
@@ -27,11 +27,6 @@ Exploit the critical flaws of Server Message Block version 1, a network file-sha
 
 ### Reconnaissance
 Command: `nmap -sV -vv --script=vuln [target IP]`
-- `nmap` - a powerful tool for scanning and enumeration
-- `sV` - service/version scan
-- `vv` - show the process line by line
-- `--script=vuln` - find the machine's vulnerability
-- This command will show the target machine's listening ports/services, their versions, and vulnerabilities while showing the real-time process by line.
 
 Determine how many ports under 1000 are open and what is the machine vulnerable to (ex: ms08-067).
 
@@ -101,9 +96,38 @@ Hints:
 Actual Locations:
 1. `c:\`
 2. `c:\Windows\system32\config`
-3. `c:\Jon\Documents`
+3. `c:\Users\Jon\Documents`
 
 Opening the text files:
 - Using the meterpreter, you can use `cat` to display the flags inside the text files.
 - Exanple: `cat c:\\flag.txt`
 - Double the backward slash for it to work.
+
+---
+
+## Technicalities
+- EterbalBlue
+	- a computer exploit that is developed and kept secret by National Security Agency (NSA)
+	- targets the buffer overflow flaw in SMBv1
+	- was leaked by the group Shadow Brokers and used for the WannaCry ransomware in 2017
+- SMBv1 - Server Message Block version 1, is a legacy file-sharing protocol of Windows
+- MS17-010 - a Windows security patch for SMBv1 
+- `nmap -sV -vv --script=vuln [target IP]`
+	- `nmap` - a powerful tool for scanning and enumeration
+	- `sV` - service/version scan
+	- `vv` - show the process line by line
+	- `--script=vuln` - find the machine's vulnerability
+	- This command will show the target machine's listening ports/services, their versions, and vulnerabilities while showing the real-time process by line.
+ - Shell - a tool that executes commands
+ - Meterpreter
+	- a shell that has pre built commands that are combinations of multiple commands at once
+ 	- runs in memory and behind a process
+- Old Antivirus
+	- checks files in the system for scanning
+ 	- can't detect a meterpreter as it doesn't have a file on its own
+- Process Migration
+	- for stability, privilege inheritance, and stealth
+ 		- Stability: The Meterpreter won't crash if the previously exploited process crashes or stops.
+  		- Privilege Inheritance: The Meterpreter gains the privileges of the process it migrated into.
+  		- Stealth: The process may avoid Meterpreter detection.
+    - will fail if the process runs on different bit or on higher privilege
