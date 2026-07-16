@@ -30,3 +30,16 @@
   - FTP Anonymous Login
   - Weak Passwords
   - Allows Privilege Escalation via Command Privilege Inheritance
+
+## Blue 
+- Exploit the SMBv1 vulnerability using EternalBlue and leverage common misconfiguration issues to hack a Windows machine.
+- Skills:
+  - Scanning and Enumeration
+  - EternalBlue Exploitation
+  - Hash Cracking
+  - Process Migration
+  - Shell to Meterpreter Upgrade 
+- Tools: nmap, Metasploit, hashcat
+- Vulnerbilities:
+  - SMBv1 Buffer Overflow
+  - Weak Password 
