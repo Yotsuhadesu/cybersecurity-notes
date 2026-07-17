@@ -37,8 +37,8 @@ Determine how many ports under 1000 are open and what is the machine vulnerable 
 
 ![commands](screenshots/metasploit_commands.png)
 
-	- Look for the full path of code.
-    - Hint: `eternalblue`
+- Look for the full path of code.
+- Hint: `eternalblue`
 3. Use the exploitation code.
     - Command: `use exploit/path/of/the/code`
 4. Show required values.
