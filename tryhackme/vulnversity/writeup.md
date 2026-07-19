@@ -49,3 +49,11 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 11. Look at the window that will appear after and look for an extension that has `Success` feedback in it.
 
 #### 2. Get a Reverse Shell
+- Force the target machine to initiate a connection with the attacker to gain remote access
+
+1. Download the PHP reverse shell [here](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php).
+2. Edit it using `nano` and replace the IP with your `tun0` IP
+3. Listen to incoming connections using `netcat`
+        - Command: `nc -lvnp 1234` - wait for connections on port 1234
+4. Upload the PHP file to the webserver
+5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse filename]
