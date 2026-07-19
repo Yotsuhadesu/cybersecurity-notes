@@ -28,17 +28,24 @@ Command: `gobuster dir -u http://[target IP]:[target port] -w /usr/share/wordlis
 ---
 
 ### Compromise the Webserver
+#### 1. Identify what file extension the server accepts
 Tool: Burp Suite - used for web traffic interception and manipulation
 
 1. Open Burp Suite and its browser
 2. Enter the website's URL with its hidden directory
 3. Turn the `Intercept` traffic on on Burp Suite
 4. Upload a php file
-5. Forward the traffic on `Intruder`
-6. On Payloads, select `Sniper attack`
-7. Create a text file with the following content:
+5. Forward the traffic to `Intruder`
+6. On `Payloads`, select `Sniper attack`
+7. Create a text file with the following content by line:
     - `php`
     - `php3`
     - `php4`
     - `php5`
-    - `phtml`
+    - `phtml` 
+8. Select `runtime file` and put the text file's directory.
+9. On the `filename` field, click `Add §` to the extension. It should look like this: `filename="shell.§php§"`
+10. Click `Start attack`
+11. Look at the window that will appear after and look for an extension that has `Success` feedback in it.
+
+#### 2. Get a Reverse Shell
