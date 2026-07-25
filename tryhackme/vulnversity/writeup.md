@@ -32,19 +32,32 @@ Command: `gobuster dir -u http://[target IP]:[target port] -w /usr/share/wordlis
 Tool: Burp Suite - used for web traffic interception and manipulation
 
 1. Open Burp Suite and its browser
+
+![bursuite](screenshots/burpsuite.png)
+
 2. Enter the website's URL with its hidden directory
+
+![browser](screenshots/burpsuite_open_browser.png)
+
 3. Turn the `Intercept` traffic on on Burp Suite
+
+![intercept on](tryhackme/vulnversity/screenshots/burpsuite_intercept_on.png)
+
 4. Upload a php file
+
+![php file upload](tryhackme/vulnversity/screenshots/upload.png)
+
 5. Forward the traffic to `Intruder`
 6. On `Payloads`, select `Sniper attack`
-7. Create a text file with the following content by line:
-    - `php`
-    - `php3`
-    - `php4`
-    - `php5`
-    - `phtml` 
-8. Select `runtime file` and put the text file's directory.
-9. On the `filename` field, click `Add §` to the extension. It should look like this: `filename="shell.§php§"`
+7. Create a text file with the following content.
+
+![file extensions](tryhackme/vulnversity/screenshots/extensions.png)
+
+8. Select `Runtime file` and put the text file's directory.
+9. On the `filename` field, click `Add §` to the extension. It should look like this:
+
+![intruder](tryhackme/vulnversity/screenshots/burpsuite_intruder.png)
+
 10. Click `Start attack`
 11. Look at the window that will appear after and look for an extension that has `Success` feedback in it.
 
@@ -54,6 +67,25 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 1. Download the PHP reverse shell [here](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php).
 2. Edit it using `nano` and replace the IP with your `tun0` IP
 3. Listen to incoming connections using `netcat`
-        - Command: `nc -lvnp 1234` - wait for connections on port 1234
-4. Upload the PHP file to the webserver
-5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse filename]
+
+![listen](tryhackme/vulnversity/screenshots/nc_listen.png)
+   - Command: `nc -lvnp 1234` - wait for connections on port 1234
+
+5. Upload the PHP file to the webserver
+
+![php reverse shell file upload](tryhackme/vulnversity/screenshots/upload_reverse_shell.png)
+
+5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse shell filename]
+
+![reverse shell](tryhackme/vulnversity/screenshots/reverse_shell.png)
+- netcat should catch the shell after that
+
+---
+
+### Privilege Escalation
+1. Look for files with SUID
+   - Command: `find / -perm 4000 -type f 2>/dev/null`
+       - `find` - a command for finding files
+       - `/` - start from the highest directory/search all directories
+       - `-perm 4000 -type f` - search for files with SUID permissions
+       - `2>/dev/null` - put error messages to /dev/null
