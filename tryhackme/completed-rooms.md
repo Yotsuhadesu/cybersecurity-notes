@@ -40,6 +40,6 @@
   - Process Migration
   - Shell to Meterpreter Upgrade 
 - Tools: nmap, Metasploit, hashcat
-- Vulnerbilities:
+- Vulnerabilities:
   - SMBv1 Buffer Overflow
   - Weak Password 
