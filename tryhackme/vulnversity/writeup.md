@@ -41,22 +41,22 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 
 3. Turn the `Intercept` traffic on on Burp Suite
 
-![intercept on](tryhackme/vulnversity/screenshots/burpsuite_intercept_on.png)
+![intercept on](screenshots/burpsuite_intercept_on.png)
 
 4. Upload a php file
 
-![php file upload](tryhackme/vulnversity/screenshots/upload.png)
+![php file upload](screenshots/upload.png)
 
 5. Forward the traffic to `Intruder`
 6. On `Payloads`, select `Sniper attack`
 7. Create a text file with the following content.
 
-![file extensions](tryhackme/vulnversity/screenshots/extensions.png)
+![file extensions](screenshots/extensions.png)
 
 8. Select `Runtime file` and put the text file's directory.
 9. On the `filename` field, click `Add §` to the extension. It should look like this:
 
-![intruder](tryhackme/vulnversity/screenshots/burpsuite_intruder.png)
+![intruder](screenshots/burpsuite_intruder.png)
 
 10. Click `Start attack`
 11. Look at the window that will appear after and look for an extension that has `Success` feedback in it.
@@ -68,16 +68,16 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 2. Edit it using `nano` and replace the IP with your `tun0` IP
 3. Listen to incoming connections using `netcat`
 
-![listen](tryhackme/vulnversity/screenshots/nc_listen.png)
+![listen](screenshots/nc_listen.png)
    - Command: `nc -lvnp 1234` - wait for connections on port 1234
 
 5. Upload the PHP file to the webserver
 
-![php reverse shell file upload](tryhackme/vulnversity/screenshots/upload_reverse_shell.png)
+![php reverse shell file upload](screenshots/upload_reverse_shell.png)
 
 5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse shell filename]
 
-![reverse shell](tryhackme/vulnversity/screenshots/reverse_shell.png)
+![reverse shell](screenshots/reverse_shell.png)
 - netcat should catch the shell after that
 
 ---
