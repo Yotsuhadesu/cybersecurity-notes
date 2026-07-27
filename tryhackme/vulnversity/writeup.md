@@ -75,7 +75,7 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 
 ![php reverse shell file upload](screenshots/upload_reverse_shell.png)
 
-5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse shell filename]
+5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse shell filename]`
 
 ![reverse shell](screenshots/reverse_shell.png)
 - netcat should catch the shell after that
