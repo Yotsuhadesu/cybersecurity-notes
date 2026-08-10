@@ -1,46 +1,31 @@
-# Python variable assignment and reassignment and its Java equivalent
-name = "Jethro"
-# String name = "Jethro";
-age = 19
-# int age = 19;
-age = "hi"
-# String age = "hi";    // different variable error
-age = 'a'
-# char age = 'a';   // different variable error
-age = 19.9
-# double age = 19.9;    // different variable error
-print(name, age)
-# System.out.println(name + " " + age)
+# Indentation, Variable Types, Assignment
 
-# Observations
-# Python doesn't need semicolons to break lines.
-# The value itself is the datatype.
-# The complier doesn't complain when I reassign values of different types on a variable.
-# To comment, use hashtag.
-# Printing concatenation only needs comma.
-# Values enclosed in '' or "" are treated as string.
-# Numbers with decimals are treated as float
+# Python figures out the data type of the variable via its assigned value
+x = "Jethro"
+print(x)    # Jethro
 
-x = 6
-y = 5
-if (x > y):
-    print("x is greater than y")
-    print("y is less than x")
-elif (y > x): print("y is greater than x")
+# You can reassign the variable with a value of different data type
+x = 5
+print(x)    # 5
+
+# Assigning several variables in a single line
+a, b, c = 1, 2, 3
+print(a, b, c) # use comma to separate variables
+
+# if/else statement
+if (x > 0): # indentation on the next line is expected after a colon, grouping statements in a single code block
+    print("x is a positive number")
+elif (x < 0):
+    print("x is a negative number")
 else:
-    print("y and x is equal")
+    print("x is zero")
 
-# Java equivalent
-# if (x > y) {
-#   System.out.println("x is greater than y");
-#   System.out.println("y is less than x");
-# } else if (y > x)
-#   System.out.println("y is greater than x");
-# else {
-#   System.out.println("x and y is equal")
-# }
-
-# Observations:
-# Lines on the same indentation are treated as block
-# You can put the line to be executed on the same line as the condition
-# A colon is a signal that an indentation is to be expected after the line.
+# Checkpoint Challenge
+name = "Jethro" # string
+age = 18    # integer
+is_stduent = True   # boolean - True or False
+age = 19    # variable reasssignment
+if (is_stduent):
+    print(name, "is a student") # concatenate strings via comma
+else:
+    print(name, "is not a student")
