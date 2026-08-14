@@ -20,4 +20,4 @@ for word in word_count:
         common_word = word
 
 # Print the result
-print(f"Most common word: '{word}' {high_count} times")
+print(f"Most common word: '{common_word}' {high_count} times")
