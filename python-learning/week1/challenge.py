@@ -8,7 +8,7 @@ word_list = sentence.split()
 # Track word counts
 word_count = {} # create an empty dict
 for word in word_list:
-    word_count[word] = word_count.get(word.lower(), 0) + 1
+    word_count[word.lower()] = word_count.get(word.lower(), 0) + 1
     # .get(key, value) - safely finds a value, it returns the value if it exists and returns none if not
 
 # Track most common word
